@@ -40,8 +40,7 @@ class ConvNetwork(torch.nn.Module):
                                        stride=self.configuration.max_pool_stride))
         self.fc_layer = torch.nn.Sequential(
             torch.nn.Linear(in_features=self.configuration.fc_layer.in_channels,
-                            out_features=self.configuration.fc_layer.out_channels),
-            torch.nn.modules.activation.Softmax())
+                            out_features=self.configuration.fc_layer.out_channels))
 
     def forward(self, input):
         out = input

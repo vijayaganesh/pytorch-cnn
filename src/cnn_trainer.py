@@ -72,14 +72,12 @@ class CNNTrainer:
         with torch.no_grad():
             correct = 0
             total = len(self.validate_label)
-
             for image, label in validation_data:
                 image = image.to(self.device)
                 label = label.to(self.device)
-                eval_output = np.array(convert_from_one_hot(self.model(image).numpy()))  
-                if eval_output == label:
-                    correct += 1
-
+                outputs = self.model(image)
+                _, predicted = torch.max(outputs.data, 1)
+                correct += (predicted == label).sum().item() 
             print('Validation Accuracy: {}/{}'.format(correct, total))
 
     @staticmethod
