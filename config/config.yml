@@ -1,0 +1,26 @@
+batch_size: 100
+n_epoch: 5
+learning_rate: 1e-3
+conv_stride: 1
+conv_padding: 2
+conv_kernel_size: 5
+max_pool_stride: 1
+max_pool_kernel_size: 4
+n_final_neurons: 20
+n_conv_layers: 3
+n_classes: 10
+activation: 'ReLU'
+optimizer: 'Adam'
+img_size: 28
+layers:
+  1: 
+    n_kernels: 5
+    is_batch_norm: true
+    
+  2:
+    n_kernels: 5
+    is_batch_norm: true
+
+  3:
+    n_kernels: 5
+    is_batch_norm: true
